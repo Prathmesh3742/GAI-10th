@@ -2,133 +2,626 @@
   {
     "event_type": "career",
     "title": "A New Opportunity",
-    "description": "Your manager calls you into the office with exciting news — a new position has opened up that could change your career trajectory. The role comes with more responsibility, a higher salary, but also higher stress.",
+    "description": "Your manager calls you into the office with exciting news. A new position has opened up — higher salary, more responsibility, and significantly more stress. The role may require relocating.",
     "choices": [
-      {
-        "text": "Accept the promotion eagerly",
-        "effects": { "money": 8000, "stress": 15, "happiness": 10, "reputation": 5 },
-        "time_months": 6
-      },
-      {
-        "text": "Ask for a week to consider it",
-        "effects": { "stress": -3, "reputation": -2 },
-        "time_months": 1
-      },
-      {
-        "text": "Decline and focus on your current role",
-        "effects": { "stress": -8, "happiness": 5, "reputation": -3 },
-        "time_months": 6
-      }
+      {"text": "Accept the promotion eagerly", "effects": {"money": 8000, "stress": 15, "happiness": 10, "reputation": 5}, "time_months": 6},
+      {"text": "Ask for a week to think it over", "effects": {"stress": -3, "reputation": -2}, "time_months": 1},
+      {"text": "Decline and stay in your current role", "effects": {"stress": -8, "happiness": 5, "reputation": -3}, "time_months": 6}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Office Politics",
+    "description": "You discover that a colleague has been taking credit for your work in team meetings. Your manager seems to believe them. Confronting this could be risky — but staying silent may cost you more.",
+    "choices": [
+      {"text": "Confront the colleague directly and privately", "effects": {"stress": 10, "reputation": 5, "happiness": -5}, "time_months": 1},
+      {"text": "Raise it professionally with your manager", "effects": {"reputation": 10, "stress": 12, "happiness": -8}, "time_months": 1},
+      {"text": "Document everything quietly and wait", "effects": {"stress": 5, "reputation": -3}, "time_months": 2},
+      {"text": "Ignore it and focus on your next project", "effects": {"stress": -5, "happiness": 3, "reputation": -8}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Performance Review",
+    "description": "Your annual review is here. Your manager praises your technical skills but flags poor communication. You can use this moment to negotiate a raise — or simply accept the feedback.",
+    "choices": [
+      {"text": "Negotiate confidently for a raise", "effects": {"money": 5000, "reputation": 8, "stress": 10}, "time_months": 1},
+      {"text": "Accept the feedback and set improvement goals", "effects": {"reputation": 5, "happiness": 5, "stress": -5}, "time_months": 3},
+      {"text": "Push back firmly on the negative feedback", "effects": {"stress": 15, "reputation": -8, "happiness": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Crushing Workload",
+    "description": "Three major projects land on your desk simultaneously with overlapping deadlines. You are already stretched thin. This could be your chance to prove yourself — or it could break you.",
+    "choices": [
+      {"text": "Take it all on — prove yourself", "effects": {"health": -10, "stress": 20, "reputation": 15, "money": 3000}, "time_months": 3},
+      {"text": "Delegate tasks to teammates", "effects": {"stress": 5, "reputation": 5, "energy": -5}, "time_months": 2},
+      {"text": "Talk to your manager about reprioritising", "effects": {"stress": -10, "reputation": 3, "happiness": 5}, "time_months": 1},
+      {"text": "Quietly do the minimum to survive", "effects": {"stress": -5, "reputation": -10, "happiness": -8}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "A Mentor Appears",
+    "description": "A senior leader takes a genuine interest in your career. They offer to mentor you — but it means monthly evening meetings and extra assignments on top of your regular work.",
+    "choices": [
+      {"text": "Eagerly accept — the long-term value is clear", "effects": {"reputation": 15, "energy": -8, "happiness": 10, "stress": 8}, "time_months": 6},
+      {"text": "Accept but negotiate clear limits on time", "effects": {"reputation": 8, "stress": 3, "happiness": 5}, "time_months": 6},
+      {"text": "Politely decline — you need your evenings", "effects": {"stress": -10, "energy": 5, "reputation": -5}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Competitor Comes Calling",
+    "description": "A rival company reaches out through LinkedIn with a 40% salary hike and a senior title. It is tempting, but starting fresh in an unfamiliar culture is a real risk.",
+    "choices": [
+      {"text": "Accept the offer — the jump is worth it", "effects": {"money": 15000, "stress": 15, "happiness": 8, "reputation": 10}, "time_months": 3},
+      {"text": "Use the offer to negotiate a raise where you are", "effects": {"money": 6000, "reputation": 5, "stress": 8}, "time_months": 1},
+      {"text": "Decline — loyalty and stability matter to you", "effects": {"reputation": 5, "stress": -5, "happiness": 5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Startup Invitation",
+    "description": "A college friend invites you to co-found a startup. The idea is exciting and early funding looks promising — but it means leaving stable employment with no guarantee of success.",
+    "choices": [
+      {"text": "Quit and join full-time — go all in", "effects": {"money": -10000, "happiness": 20, "stress": 25, "reputation": 5}, "time_months": 6},
+      {"text": "Advise part-time while keeping your job", "effects": {"stress": 12, "happiness": 10, "energy": -10}, "time_months": 3},
+      {"text": "Decline — the risk is too high right now", "effects": {"stress": -5, "happiness": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Project Collapse",
+    "description": "A high-visibility project you were leading has failed publicly. The client is unhappy, your manager is disappointed, and your team is demoralized. How you handle the fallout will define your next chapter.",
+    "choices": [
+      {"text": "Take full accountability and present a recovery plan", "effects": {"reputation": 10, "stress": 20, "happiness": -10}, "time_months": 2},
+      {"text": "Share responsibility honestly with the team", "effects": {"reputation": 3, "stress": 12, "happiness": -5}, "time_months": 1},
+      {"text": "Quietly shift blame to external factors", "effects": {"reputation": -15, "stress": 5, "happiness": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Employee of the Quarter",
+    "description": "You have been selected as Employee of the Quarter. Your name will be announced company-wide and you will receive a cash bonus. All the hard work is finally paying off.",
+    "choices": [
+      {"text": "Accept proudly and share the credit with your team", "effects": {"reputation": 15, "happiness": 20, "money": 5000}, "time_months": 1},
+      {"text": "Accept quietly — you prefer not to be in the spotlight", "effects": {"reputation": 8, "happiness": 12, "money": 5000, "stress": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Team Clash",
+    "description": "Weeks of tension with a colleague erupted in a team meeting today. The conflict is now visible to management and it needs to be addressed one way or another.",
+    "choices": [
+      {"text": "Initiate a calm one-on-one to resolve it", "effects": {"stress": -8, "reputation": 8, "happiness": 5}, "time_months": 1},
+      {"text": "Ask HR to mediate", "effects": {"stress": -5, "reputation": 3, "happiness": -3}, "time_months": 1},
+      {"text": "Ignore it and hope it blows over", "effects": {"stress": 10, "reputation": -8, "happiness": -8}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Upskilling Opportunity",
+    "description": "Your company is sponsoring a certification in an emerging technology. It is free, but requires three months of evenings and weekends. A worthwhile sacrifice — or is it?",
+    "choices": [
+      {"text": "Enrol and commit fully", "effects": {"reputation": 10, "energy": -15, "stress": 10, "happiness": 5}, "time_months": 3},
+      {"text": "Enrol but pace yourself", "effects": {"reputation": 6, "energy": -8, "stress": 5}, "time_months": 4},
+      {"text": "Skip it — you need the break", "effects": {"energy": 10, "stress": -8, "happiness": 8, "reputation": -3}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Company Downsizing",
+    "description": "Your company announces layoffs affecting 20% of staff. You are not on the list — but three colleagues are, including a close work friend. The office mood has turned very bleak.",
+    "choices": [
+      {"text": "Help your friend job-hunt — be their support system", "effects": {"happiness": 8, "energy": -8, "stress": 5}, "time_months": 2},
+      {"text": "Focus on securing your own position", "effects": {"stress": 10, "happiness": -8, "reputation": 3}, "time_months": 2},
+      {"text": "Start quietly looking for a new job yourself", "effects": {"stress": 15, "energy": -10, "happiness": -5}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Overworked",
+    "description": "You have been working 12-hour days for three straight months. Your body is protesting and your personal life has shrunk to almost nothing. Something has to give.",
+    "choices": [
+      {"text": "Take a full week off — your body needs it urgently", "effects": {"health": 15, "stress": -20, "happiness": 15, "energy": 20, "money": -2000}, "time_months": 1},
+      {"text": "Reduce hours gradually and set firm boundaries", "effects": {"stress": -12, "health": 8, "energy": 10, "reputation": -3}, "time_months": 2},
+      {"text": "Push through — the milestone is so close", "effects": {"health": -15, "stress": 15, "reputation": 8, "money": 4000}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Side Hustle Beckons",
+    "description": "A freelance project lands in your inbox — it pays well but would consume your weekends for two months. It is outside your core expertise but genuinely exciting.",
+    "choices": [
+      {"text": "Take it — the extra income is worth the sacrifice", "effects": {"money": 12000, "stress": 15, "energy": -15, "happiness": 8}, "time_months": 2},
+      {"text": "Negotiate for a smaller, manageable scope", "effects": {"money": 6000, "stress": 8, "energy": -8}, "time_months": 2},
+      {"text": "Decline — weekends are sacred", "effects": {"stress": -8, "energy": 10, "happiness": 10}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "career",
+    "title": "Industry Conference",
+    "description": "Your company is sending you to a prestigious industry conference in another city. Three days of networking, workshops, and a chance to be noticed by the right people.",
+    "choices": [
+      {"text": "Go and network aggressively", "effects": {"reputation": 12, "happiness": 8, "stress": 8, "money": -1000}, "time_months": 1},
+      {"text": "Go and focus mostly on learning", "effects": {"reputation": 5, "happiness": 10, "stress": -3}, "time_months": 1},
+      {"text": "Skip it — too much happening at work right now", "effects": {"stress": -5, "reputation": -5, "energy": 8}, "time_months": 1}
     ]
   },
   {
     "event_type": "relationships",
     "title": "An Old Friend Returns",
-    "description": "Someone you haven't spoken to in years reaches out. They want to reconnect and catch up. A part of you is excited, another part is cautious — you remember why you drifted apart.",
+    "description": "Someone you haven't spoken to in years reaches out wanting to reconnect. Part of you is excited, part cautious — you remember why you drifted apart.",
     "choices": [
-      {
-        "text": "Meet them for coffee",
-        "effects": { "happiness": 12, "energy": -5, "stress": -5 },
-        "time_months": 1
-      },
-      {
-        "text": "Reply warmly but keep your distance",
-        "effects": { "happiness": 4, "stress": -2 },
-        "time_months": 1
-      },
-      {
-        "text": "Ignore the message",
-        "effects": { "stress": -8, "happiness": -5, "reputation": -3 },
-        "time_months": 1
-      }
+      {"text": "Meet them for coffee and genuinely reconnect", "effects": {"happiness": 12, "energy": -5, "stress": -5}, "time_months": 1},
+      {"text": "Reply warmly but keep your distance for now", "effects": {"happiness": 4, "stress": -2}, "time_months": 1},
+      {"text": "Ignore the message", "effects": {"stress": -8, "happiness": -5, "reputation": -3}, "time_months": 1}
     ]
   },
   {
-    "event_type": "health",
-    "title": "An Unexpected Health Scare",
-    "description": "You wake up feeling unwell and decide to visit a doctor. After some tests, the results suggest you need to make lifestyle changes. The doctor recommends medication and reduced stress.",
+    "event_type": "relationships",
+    "title": "A Romantic Interest",
+    "description": "Someone catches your eye — or perhaps you have caught theirs. There is a clear spark. Pursuing this could bring real joy, but it will take time and emotional energy you may not have.",
     "choices": [
-      {
-        "text": "Follow the doctor's advice strictly",
-        "effects": { "health": 20, "money": -3000, "stress": -10, "happiness": -5 },
-        "time_months": 3
-      },
-      {
-        "text": "Take some rest and try home remedies",
-        "effects": { "health": 8, "stress": -3 },
-        "time_months": 1
-      },
-      {
-        "text": "Ignore the symptoms and push through",
-        "effects": { "health": -15, "stress": 10, "happiness": -8 },
-        "time_months": 2
-      }
+      {"text": "Ask them out — take the leap", "effects": {"happiness": 20, "stress": 8, "energy": -5}, "time_months": 2},
+      {"text": "Build a genuine friendship first, take it slow", "effects": {"happiness": 10, "stress": 3, "energy": -3}, "time_months": 3},
+      {"text": "Focus on yourself — this is not the right time", "effects": {"happiness": -5, "stress": -5, "energy": 5}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "A Painful Falling Out",
+    "description": "A misunderstanding escalated into a serious argument with someone you care about. Words were said that cannot be easily unsaid. The friendship is hanging in the balance.",
+    "choices": [
+      {"text": "Apologise first — the relationship matters more than being right", "effects": {"happiness": 10, "stress": -10, "reputation": 5}, "time_months": 1},
+      {"text": "Give it time to cool, then have a proper conversation", "effects": {"stress": 5, "happiness": -5}, "time_months": 2},
+      {"text": "Stand your ground — you were not wrong", "effects": {"stress": 5, "happiness": -12, "reputation": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "Family Reconnection",
+    "description": "You have grown distant from a family member you once loved spending time with. Life got in the way. Now they have reached out after a long silence.",
+    "choices": [
+      {"text": "Reach out immediately and plan a proper visit", "effects": {"happiness": 15, "energy": -8, "stress": -5}, "time_months": 1},
+      {"text": "Reply warmly and keep it light for now", "effects": {"happiness": 8, "stress": -3}, "time_months": 1},
+      {"text": "The distance is intentional — leave it be", "effects": {"stress": -5, "happiness": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "A New Friend",
+    "description": "You instantly click with a new colleague. They share your interests and bring a refreshing perspective. A genuine friendship feels possible — but only if you invest the effort.",
+    "choices": [
+      {"text": "Invite them for lunch — invest in the friendship", "effects": {"happiness": 15, "energy": -5, "stress": -8}, "time_months": 2},
+      {"text": "Keep it casual — a friendly work relationship is enough", "effects": {"happiness": 5, "stress": -3}, "time_months": 1},
+      {"text": "Stay focused — you have enough on your plate", "effects": {"happiness": -5, "stress": -3, "energy": 3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "A Friend in Crisis",
+    "description": "A close friend calls in tears. They are going through something serious — a breakup, job loss, or mental health crisis. They need you, and you are the only person they have called.",
+    "choices": [
+      {"text": "Drop everything and be fully present for them", "effects": {"happiness": 10, "stress": 8, "energy": -15, "reputation": 8}, "time_months": 1},
+      {"text": "Offer support within your own limits", "effects": {"happiness": 5, "stress": 3, "energy": -5}, "time_months": 1},
+      {"text": "You are barely keeping it together yourself", "effects": {"happiness": -10, "stress": -5, "reputation": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "Social Media Trouble",
+    "description": "An old post of yours resurfaced and is being widely criticised online. It was taken out of context, but the damage is spreading and your colleagues and family have seen it.",
+    "choices": [
+      {"text": "Post a clear and thoughtful public apology", "effects": {"reputation": 5, "stress": 15, "happiness": -8}, "time_months": 1},
+      {"text": "Delete the post and say nothing", "effects": {"stress": 8, "reputation": -5, "happiness": -5}, "time_months": 1},
+      {"text": "Post a follow-up explaining the full context", "effects": {"reputation": 3, "stress": 10, "happiness": -3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "Community Service",
+    "description": "A local NGO needs volunteers for an environmental drive this weekend. The time commitment is real but the cause feels genuinely meaningful to you.",
+    "choices": [
+      {"text": "Give the whole weekend — go all in", "effects": {"happiness": 20, "reputation": 10, "energy": -15, "stress": -5}, "time_months": 1},
+      {"text": "Volunteer for just one day", "effects": {"happiness": 12, "reputation": 5, "energy": -8}, "time_months": 1},
+      {"text": "Donate money instead of time", "effects": {"happiness": 5, "money": -2000, "stress": -3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "A Chance Encounter",
+    "description": "You run into someone unexpectedly — an old flame, a childhood friend, or someone whose life once intersected powerfully with yours. The encounter stirs up old feelings and forgotten memories.",
+    "choices": [
+      {"text": "Stop and have a genuine, unhurried conversation", "effects": {"happiness": 10, "stress": 5, "energy": -5}, "time_months": 1},
+      {"text": "Exchange pleasantries and move on gracefully", "effects": {"happiness": 3, "stress": 3}, "time_months": 1},
+      {"text": "Slip away before they notice you", "effects": {"happiness": -3, "stress": 5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "Growing Apart",
+    "description": "You and a close friend have been on different paths. Calls have become shorter, meetings rarer. You sense the friendship is quietly slipping away unless someone makes the first move.",
+    "choices": [
+      {"text": "Plan a trip together — reconnect properly", "effects": {"happiness": 15, "money": -5000, "stress": -8, "energy": -5}, "time_months": 2},
+      {"text": "Send a heartfelt message and reach out", "effects": {"happiness": 8, "stress": -3}, "time_months": 1},
+      {"text": "Accept that people grow apart — let it go", "effects": {"happiness": -8, "stress": -5}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "Wedding Invitation",
+    "description": "A good friend is getting married and you are invited. The wedding is in another city and the full trip will be expensive — but missing it would be a hard relationship to recover from.",
+    "choices": [
+      {"text": "Attend and celebrate fully — be there for them", "effects": {"happiness": 20, "money": -8000, "energy": -8, "stress": -5}, "time_months": 1},
+      {"text": "Attend the main ceremony, keep the trip short", "effects": {"happiness": 12, "money": -4000, "energy": -5}, "time_months": 1},
+      {"text": "Send a thoughtful gift and your sincere regrets", "effects": {"happiness": -5, "money": -2000, "reputation": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "Neighbourhood Dispute",
+    "description": "A long-simmering disagreement with a neighbour became unavoidable today — they confronted you directly in front of others. The whole building is watching how you handle this.",
+    "choices": [
+      {"text": "Stay calm and actively seek a fair solution", "effects": {"stress": -5, "reputation": 10, "happiness": 5}, "time_months": 1},
+      {"text": "Stand your ground — you are clearly in the right", "effects": {"stress": 10, "reputation": -5, "happiness": -5}, "time_months": 1},
+      {"text": "Escalate formally to the housing society", "effects": {"stress": 15, "money": -1000, "reputation": 3}, "time_months": 2}
     ]
   },
   {
     "event_type": "finance",
     "title": "A Financial Decision",
-    "description": "You have some savings accumulated and a financial advisor suggests two options: invest in the stock market for higher returns, or put the money in a safe fixed deposit.",
+    "description": "You have accumulated some savings and a financial advisor lays out your options: equity markets for higher returns, or a stable fixed deposit for peace of mind.",
     "choices": [
-      {
-        "text": "Invest aggressively in stocks",
-        "effects": { "money": 12000, "stress": 15, "happiness": 5 },
-        "time_months": 12
-      },
-      {
-        "text": "Go with the safe fixed deposit",
-        "effects": { "money": 3000, "stress": -5, "happiness": 2 },
-        "time_months": 12
-      },
-      {
-        "text": "Spend it on experiences instead",
-        "effects": { "money": -8000, "happiness": 18, "stress": -12 },
-        "time_months": 3
-      }
+      {"text": "Invest aggressively in equities", "effects": {"money": 12000, "stress": 15, "happiness": 5}, "time_months": 12},
+      {"text": "Go with the safe fixed deposit", "effects": {"money": 3000, "stress": -5, "happiness": 2}, "time_months": 12},
+      {"text": "Spend it on experiences instead", "effects": {"money": -8000, "happiness": 18, "stress": -12}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Unexpected Medical Bill",
+    "description": "A family member requires an urgent procedure. The hospital bill is significant and insurance covers only a portion of it. You need to act quickly.",
+    "choices": [
+      {"text": "Pay the full bill without hesitation", "effects": {"money": -20000, "stress": 15, "happiness": 5, "reputation": 8}, "time_months": 1},
+      {"text": "Set up an EMI plan with the hospital", "effects": {"money": -5000, "stress": 8, "happiness": 3}, "time_months": 1},
+      {"text": "Appeal the insurance and delay payment", "effects": {"stress": 20, "money": -3000, "happiness": -5}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Investment Pitch",
+    "description": "An acquaintance with a history of successful ventures pitches you a real estate opportunity. The returns look exceptional on paper — and so does the risk.",
+    "choices": [
+      {"text": "Invest a significant amount — high risk, high reward", "effects": {"money": 30000, "stress": 20, "happiness": 10}, "time_months": 12},
+      {"text": "Invest a small, manageable amount to test it", "effects": {"money": 8000, "stress": 10, "happiness": 5}, "time_months": 12},
+      {"text": "Decline — if it sounds too good, it usually is", "effects": {"stress": -8, "happiness": 3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Budget Crisis",
+    "description": "Monthly expenses have been creeping up and this month you are dangerously close to zero. Something has to give — either cut back immediately or find a quick bridge.",
+    "choices": [
+      {"text": "Cut all non-essentials for two months", "effects": {"money": 4000, "happiness": -8, "stress": 5}, "time_months": 2},
+      {"text": "Take a small personal loan to bridge the gap", "effects": {"money": 10000, "stress": 12, "happiness": -5}, "time_months": 1},
+      {"text": "Ask a trusted family member for help", "effects": {"money": 8000, "stress": 5, "reputation": -5, "happiness": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Credit Card Spiral",
+    "description": "You have been using credit heavily for months and the debt has crept to a worrying level. The interest is compounding. It is time to deal with it seriously.",
+    "choices": [
+      {"text": "Clear the entire balance — bite the bullet", "effects": {"money": -15000, "stress": -15, "happiness": 10}, "time_months": 1},
+      {"text": "Build a structured repayment plan over three months", "effects": {"money": -5000, "stress": -8, "happiness": 5}, "time_months": 3},
+      {"text": "Minimum payments only — deal with it later", "effects": {"stress": 12, "happiness": -8, "money": -2000}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Year-End Bonus",
+    "description": "Your company announces a year-end performance bonus — more than you expected. How you use this windfall could shape your finances for the next year.",
+    "choices": [
+      {"text": "Invest half in mutual funds, spend the rest wisely", "effects": {"money": 5000, "stress": -5, "happiness": 8}, "time_months": 1},
+      {"text": "Use it entirely to pay off outstanding debt", "effects": {"stress": -12, "happiness": 12}, "time_months": 1},
+      {"text": "Treat yourself and your loved ones generously", "effects": {"money": -5000, "happiness": 20, "stress": -8}, "time_months": 1},
+      {"text": "Save every rupee as an emergency fund", "effects": {"money": 8000, "stress": -10, "happiness": 5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Vehicle Breakdown",
+    "description": "Your vehicle breaks down on the way to work. The mechanic says it needs major repairs. Repair it, replace it, or manage without it — each option has a real cost.",
+    "choices": [
+      {"text": "Repair it properly — you need reliable transport", "effects": {"money": -12000, "stress": 8, "happiness": -5}, "time_months": 1},
+      {"text": "Buy a good used vehicle instead", "effects": {"money": -25000, "stress": 5, "happiness": 5}, "time_months": 2},
+      {"text": "Use public transport and save the repair cost", "effects": {"stress": 10, "energy": -5, "happiness": -8}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Festival Season Spending",
+    "description": "Festival season has arrived along with social and family expectations — gifts, celebrations, new clothes, travel. The pressure to spend is real, but so is the joy.",
+    "choices": [
+      {"text": "Celebrate fully and embrace the season", "effects": {"money": -10000, "happiness": 20, "stress": -10, "reputation": 5}, "time_months": 1},
+      {"text": "Celebrate thoughtfully within a sensible budget", "effects": {"money": -4000, "happiness": 12, "stress": -5}, "time_months": 1},
+      {"text": "Keep it minimal this year — you cannot afford it", "effects": {"money": -1000, "happiness": -5, "reputation": -5, "stress": -3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Freelance Windfall",
+    "description": "A project you pitched months ago is suddenly approved and the client transfers a large advance. This is more than you expected — and you need to decide quickly what to do with it.",
+    "choices": [
+      {"text": "Invest half and use the rest wisely", "effects": {"money": 10000, "happiness": 12, "stress": -5}, "time_months": 1},
+      {"text": "Save the entire amount as a security cushion", "effects": {"money": 20000, "stress": -10, "happiness": 8}, "time_months": 1},
+      {"text": "Use it to meaningfully upgrade your lifestyle", "effects": {"money": 5000, "happiness": 18, "stress": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "Home Repair Emergency",
+    "description": "Your bathroom ceiling develops a serious leak after heavy rain. Left unaddressed it becomes a far bigger problem — but the contractor's quote is steep.",
+    "choices": [
+      {"text": "Fix it properly with a professional — do it right", "effects": {"money": -18000, "stress": 5, "happiness": 5}, "time_months": 1},
+      {"text": "Do a temporary patch job to buy some time", "effects": {"money": -3000, "stress": 8, "happiness": -5}, "time_months": 1},
+      {"text": "Get three quotes and negotiate aggressively", "effects": {"money": -12000, "stress": 10, "happiness": 3}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "An Unexpected Health Scare",
+    "description": "You wake up feeling unwell and visit a doctor. Test results show you need to make lifestyle changes immediately. The doctor recommends medication and a significant reduction in stress.",
+    "choices": [
+      {"text": "Follow the doctor's advice strictly", "effects": {"health": 20, "money": -3000, "stress": -10, "happiness": -5}, "time_months": 3},
+      {"text": "Rest and try home remedies for now", "effects": {"health": 8, "stress": -3}, "time_months": 1},
+      {"text": "Ignore the symptoms and push through", "effects": {"health": -15, "stress": 10, "happiness": -8}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Gym Dilemma",
+    "description": "A new gym opened near your home with a reasonable membership offer. Getting fit could pay real dividends — but it takes time and discipline you are not sure you have.",
+    "choices": [
+      {"text": "Join and commit to five sessions a week", "effects": {"health": 20, "energy": 15, "stress": -10, "money": -3000, "happiness": 10}, "time_months": 6},
+      {"text": "Join and go whenever you realistically can", "effects": {"health": 10, "energy": 8, "money": -3000, "stress": -5}, "time_months": 6},
+      {"text": "Exercise at home — free and flexible", "effects": {"health": 8, "energy": 5, "stress": -5}, "time_months": 3},
+      {"text": "Skip it — absolutely no time right now", "effects": {"health": -5, "stress": 5, "energy": -5}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Mental Health Check",
+    "description": "You have been feeling persistently low — unmotivated, anxious, disconnected from everything. A friend suggests seeing a therapist. The idea feels both necessary and daunting.",
+    "choices": [
+      {"text": "Book an appointment — you deserve real support", "effects": {"happiness": 15, "stress": -20, "money": -4000, "energy": 8}, "time_months": 3},
+      {"text": "Start with journaling and daily meditation", "effects": {"happiness": 8, "stress": -10, "energy": 5}, "time_months": 2},
+      {"text": "Open up to a trusted friend or family member", "effects": {"happiness": 10, "stress": -8}, "time_months": 1},
+      {"text": "Push through it alone — you always have", "effects": {"happiness": -8, "stress": 10, "health": -5}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Seasonal Illness",
+    "description": "The changing season brought a bad flu that has knocked you flat for a week. You have important work pending but your body is flat-out refusing to cooperate.",
+    "choices": [
+      {"text": "Rest completely — your body clearly needs it", "effects": {"health": 15, "stress": -5, "energy": 10, "happiness": 3}, "time_months": 1},
+      {"text": "Rest at home but handle the most urgent emails", "effects": {"health": 5, "stress": 5, "energy": -5}, "time_months": 1},
+      {"text": "Power through with medication and caffeine", "effects": {"health": -10, "stress": 10, "reputation": 5, "energy": -10}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Dietary Reckoning",
+    "description": "Your doctor points out that your diet has been consistently poor — too much processed food, insufficient nutrition. A significant change is needed before it leads to chronic problems.",
+    "choices": [
+      {"text": "Overhaul your diet completely — go all in", "effects": {"health": 20, "energy": 15, "money": -2000, "stress": 5, "happiness": -5}, "time_months": 3},
+      {"text": "Make gradual, sustainable improvements", "effects": {"health": 10, "energy": 8, "stress": -3}, "time_months": 3},
+      {"text": "Acknowledge the advice but change nothing", "effects": {"health": -8, "stress": 3, "happiness": 5}, "time_months": 3}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Workplace Injury",
+    "description": "A painful sprain or strain from long hours at a bad workstation is getting worse. It is manageable now but could become chronic if you ignore it much longer.",
+    "choices": [
+      {"text": "See a physiotherapist and follow the full plan", "effects": {"health": 12, "money": -5000, "energy": 5, "stress": -5}, "time_months": 2},
+      {"text": "Rest and use self-care remedies at home", "effects": {"health": 5, "energy": -5, "stress": 3}, "time_months": 1},
+      {"text": "Ignore it and keep working — no time for this", "effects": {"health": -12, "stress": 8, "energy": -10}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Sleepless Nights",
+    "description": "Your mind races the moment you lie down. You have been struggling to sleep for weeks and it is affecting your concentration, mood, and physical health in ways you can no longer ignore.",
+    "choices": [
+      {"text": "Establish a strict sleep routine and cut screens", "effects": {"health": 15, "energy": 20, "happiness": 10, "stress": -15}, "time_months": 2},
+      {"text": "Consult a doctor about sleep aids", "effects": {"health": 10, "energy": 15, "money": -2000, "stress": -8}, "time_months": 1},
+      {"text": "Push through on caffeine as always", "effects": {"health": -10, "energy": -10, "stress": 12, "happiness": -8}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Dental Emergency",
+    "description": "A severe toothache you have been ignoring for weeks becomes unbearable. The dentist says you need a root canal. The cost is significant and the procedure is deeply uncomfortable.",
+    "choices": [
+      {"text": "Go ahead with the root canal — deal with it properly", "effects": {"health": 10, "money": -8000, "stress": 5, "happiness": -5}, "time_months": 1},
+      {"text": "Choose extraction — it is faster and cheaper", "effects": {"health": 5, "money": -2000, "stress": 3, "happiness": -8}, "time_months": 1},
+      {"text": "Take painkillers and delay the decision", "effects": {"health": -10, "stress": 12, "happiness": -10, "money": -500}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Annual Check-Up",
+    "description": "It has been over a year since your last health check-up. Your doctor sends a gentle reminder. You feel fine — but preventive checks catch things that feeling fine cannot.",
+    "choices": [
+      {"text": "Book a comprehensive full-body health check", "effects": {"health": 10, "stress": -5, "money": -3500, "happiness": 5}, "time_months": 1},
+      {"text": "Go for a basic check-up only", "effects": {"health": 5, "money": -1500, "stress": -3}, "time_months": 1},
+      {"text": "Skip it — you genuinely feel fine", "effects": {"health": -5, "stress": 3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "Burnout Warning",
+    "description": "You have not had a real break in months. Colleagues notice you seem different — less present, more irritable. Your body is sending unmistakable signals that something needs to change.",
+    "choices": [
+      {"text": "Take a proper two-week vacation and fully disconnect", "effects": {"health": 15, "stress": -25, "energy": 20, "happiness": 20, "money": -8000}, "time_months": 1},
+      {"text": "Take a long weekend and make it count", "effects": {"health": 8, "stress": -12, "energy": 10, "happiness": 10}, "time_months": 1},
+      {"text": "Reduce your workload for the next month", "effects": {"health": 5, "stress": -8, "energy": 8, "reputation": -3}, "time_months": 1},
+      {"text": "Push on — you cannot afford to stop right now", "effects": {"health": -15, "stress": 20, "energy": -15, "happiness": -15}, "time_months": 2}
     ]
   },
   {
     "event_type": "family",
     "title": "A Family Gathering",
-    "description": "Your extended family is hosting a large gathering this weekend. Relatives you haven't seen in years will be there. It's an opportunity to reconnect — or to deal with the usual family drama.",
+    "description": "Your extended family is hosting a large gathering this weekend. Relatives you haven't seen in years will be there — an opportunity to reconnect, or to deal with the usual family dynamics.",
     "choices": [
-      {
-        "text": "Attend and engage genuinely",
-        "effects": { "happiness": 10, "energy": -10, "stress": 5, "reputation": 3 },
-        "time_months": 1
-      },
-      {
-        "text": "Attend but keep to yourself",
-        "effects": { "happiness": 3, "energy": -5 },
-        "time_months": 1
-      },
-      {
-        "text": "Skip it — you're too busy",
-        "effects": { "happiness": -5, "stress": -8, "reputation": -5 },
-        "time_months": 1
-      }
+      {"text": "Attend and engage genuinely with everyone", "effects": {"happiness": 10, "energy": -10, "stress": 5, "reputation": 3}, "time_months": 1},
+      {"text": "Attend but keep to yourself", "effects": {"happiness": 3, "energy": -5}, "time_months": 1},
+      {"text": "Skip it — you are genuinely too busy", "effects": {"happiness": -5, "stress": -8, "reputation": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "Parents Need Help",
+    "description": "Your parents are facing financial difficulty and have reluctantly come to you for support. They need a meaningful amount of money and they have no other real option.",
+    "choices": [
+      {"text": "Help them fully — family always comes first", "effects": {"money": -15000, "happiness": 15, "stress": 5, "reputation": 10}, "time_months": 1},
+      {"text": "Help with what you can genuinely afford", "effects": {"money": -7000, "happiness": 10, "stress": 3, "reputation": 5}, "time_months": 1},
+      {"text": "Explain honestly that you cannot help right now", "effects": {"happiness": -12, "stress": 5, "reputation": -8}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "Milestone Celebration",
+    "description": "A family member has achieved something significant — a graduation, promotion, or major personal milestone. The family wants a celebration and expects you to play a leading role.",
+    "choices": [
+      {"text": "Organise and fund a truly memorable celebration", "effects": {"happiness": 18, "money": -6000, "stress": 10, "reputation": 8}, "time_months": 1},
+      {"text": "Contribute meaningfully and share the load", "effects": {"happiness": 12, "money": -2000, "stress": 5, "reputation": 5}, "time_months": 1},
+      {"text": "Attend but keep your contribution minimal", "effects": {"happiness": 5, "money": -500, "reputation": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "Sibling Rift",
+    "description": "A long-standing tension with a sibling erupts over a family matter. Other relatives are taking sides. The rift feels wider than it has ever been.",
+    "choices": [
+      {"text": "Initiate a calm, private conversation to work it out", "effects": {"stress": -5, "happiness": 8, "reputation": 5, "energy": -5}, "time_months": 1},
+      {"text": "Stay out of it and wait for things to cool naturally", "effects": {"stress": 5, "happiness": -5}, "time_months": 2},
+      {"text": "Stand your ground regardless of the fallout", "effects": {"stress": 12, "happiness": -10, "reputation": -5}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "Family Business Crisis",
+    "description": "The family business is struggling — revenues have fallen and closure is being discussed. You are asked to step in and help with decisions, though this was never part of your plan.",
+    "choices": [
+      {"text": "Get fully involved and try to turn it around", "effects": {"stress": 20, "energy": -15, "reputation": 10, "happiness": -5}, "time_months": 6},
+      {"text": "Provide strategic advice without taking operations", "effects": {"stress": 10, "energy": -5, "reputation": 5}, "time_months": 3},
+      {"text": "Stay out of it — it is not your responsibility", "effects": {"stress": -5, "reputation": -10, "happiness": -8}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "Unexpected Houseguest",
+    "description": "A family member arrived for a few days but has now stayed for weeks. Your personal space and daily routine are significantly disrupted and the situation keeps extending.",
+    "choices": [
+      {"text": "Welcome them warmly and adapt your routine", "effects": {"happiness": 8, "stress": 10, "energy": -10}, "time_months": 1},
+      {"text": "Have an honest, kind conversation about timelines", "effects": {"stress": -5, "happiness": 3, "reputation": 3}, "time_months": 1},
+      {"text": "Tolerate it silently — family is family", "effects": {"stress": 15, "happiness": -8, "energy": -8}, "time_months": 2}
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "Elder Care Decision",
+    "description": "An elderly grandparent can no longer live independently. The family must decide between home care, a professional facility, or one family member taking primary responsibility.",
+    "choices": [
+      {"text": "Take primary responsibility yourself", "effects": {"money": -5000, "stress": 20, "happiness": 5, "energy": -15, "reputation": 12}, "time_months": 6},
+      {"text": "Pool resources for quality professional home care", "effects": {"money": -8000, "stress": 5, "happiness": 10, "reputation": 8}, "time_months": 3},
+      {"text": "Arrange a well-regarded care facility", "effects": {"money": -12000, "stress": -5, "happiness": -5, "reputation": 3}, "time_months": 2}
     ]
   },
   {
     "event_type": "random",
     "title": "A Quiet Weekend",
-    "description": "You have an unexpectedly free weekend with no obligations. The city is alive with possibilities and you feel the rare gift of unstructured time stretching ahead of you.",
+    "description": "You have an unexpectedly free weekend with no obligations at all. The city is alive with possibilities and you feel the rare gift of completely unstructured time.",
     "choices": [
-      {
-        "text": "Rest at home and completely recharge",
-        "effects": { "energy": 18, "stress": -12, "happiness": 6 },
-        "time_months": 1
-      },
-      {
-        "text": "Explore the city and meet new people",
-        "effects": { "happiness": 12, "energy": -5, "stress": 3 },
-        "time_months": 1
-      },
-      {
-        "text": "Pick up a new hobby",
-        "effects": { "happiness": 15, "energy": -8, "reputation": 3 },
-        "time_months": 1
-      }
+      {"text": "Rest at home and completely recharge", "effects": {"energy": 18, "stress": -12, "happiness": 6}, "time_months": 1},
+      {"text": "Explore the city and see where the day takes you", "effects": {"happiness": 12, "energy": -5, "stress": 3}, "time_months": 1},
+      {"text": "Pick up a new hobby you have been putting off", "effects": {"happiness": 15, "energy": -8, "reputation": 3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "A Lucky Find",
+    "description": "You discover an old gift card with balance, a forgotten fixed deposit maturity, or a reimbursement never claimed. A small but genuinely welcome windfall appears from nowhere.",
+    "choices": [
+      {"text": "Save every rupee of it — be responsible", "effects": {"money": 3000, "stress": -5, "happiness": 8}, "time_months": 1},
+      {"text": "Treat yourself to something small and meaningful", "effects": {"money": 1000, "happiness": 15, "stress": -8}, "time_months": 1},
+      {"text": "Donate it — you have enough", "effects": {"happiness": 12, "reputation": 5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "Monsoon Mayhem",
+    "description": "Heavy rains have flooded the roads, disrupted transport, and brought the city to a crawl for days. Your commute has tripled in length and your entire schedule is in chaos.",
+    "choices": [
+      {"text": "Work from home and embrace the slower pace", "effects": {"stress": -8, "energy": 8, "happiness": 5}, "time_months": 1},
+      {"text": "Battle the commute every day — commitments come first", "effects": {"stress": 15, "energy": -12, "happiness": -5}, "time_months": 1},
+      {"text": "Take a couple of official days off and reset", "effects": {"stress": -10, "energy": 10, "happiness": 8, "money": -1000}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "Surprise Day Off",
+    "description": "An unexpected public holiday is announced at short notice. You have no plans. This is a rare, entirely unscheduled free day — completely yours to use however you wish.",
+    "choices": [
+      {"text": "Visit somewhere you have been meaning to explore", "effects": {"happiness": 15, "energy": -5, "money": -1500}, "time_months": 1},
+      {"text": "Stay home — rest, read, and genuinely decompress", "effects": {"happiness": 10, "energy": 15, "stress": -10}, "time_months": 1},
+      {"text": "Use the time to get ahead on work", "effects": {"reputation": 5, "stress": 5, "happiness": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "Power Outage",
+    "description": "A prolonged power cut hits your neighbourhood for three days. No air conditioning in the heat, disrupted routines — a reminder of how dependent modern life has become on electricity.",
+    "choices": [
+      {"text": "Take it in stride — improvise and adapt cheerfully", "effects": {"stress": 5, "happiness": 3, "energy": -5}, "time_months": 1},
+      {"text": "Check into a hotel for the duration", "effects": {"money": -4000, "stress": -8, "happiness": 8}, "time_months": 1},
+      {"text": "Use the forced downtime to truly disconnect", "effects": {"energy": 15, "stress": -10, "happiness": 10}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "A Stray Needs Help",
+    "description": "An injured stray dog appears at your doorstep. It is clearly in pain and afraid. Helping it will cost time, money, and emotional energy — but leaving it feels genuinely wrong.",
+    "choices": [
+      {"text": "Take it to the vet and get it properly treated", "effects": {"happiness": 15, "money": -3000, "energy": -8, "reputation": 8}, "time_months": 1},
+      {"text": "Contact a local animal rescue organisation", "effects": {"happiness": 10, "energy": -3, "stress": -3}, "time_months": 1},
+      {"text": "Leave food and water — that is all you can manage", "effects": {"happiness": 3, "stress": 3}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "Local Festival",
+    "description": "Your neighbourhood is hosting a vibrant local festival — music, street food, cultural performances, and the warm beautiful chaos of community life at its most joyful.",
+    "choices": [
+      {"text": "Dive in fully — embrace the celebration completely", "effects": {"happiness": 20, "energy": -8, "stress": -10, "money": -1500}, "time_months": 1},
+      {"text": "Drop by for a few hours and take it all in", "effects": {"happiness": 12, "energy": -3, "stress": -5, "money": -500}, "time_months": 1},
+      {"text": "Watch from your balcony — enjoy it from a quiet distance", "effects": {"happiness": 8, "stress": -5}, "time_months": 1}
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "Online Course Discovery",
+    "description": "You stumble upon an online course on something you have always been curious about — photography, writing, coding, or something entirely different. It is affordable and self-paced.",
+    "choices": [
+      {"text": "Enrol and commit properly to completing it", "effects": {"happiness": 12, "energy": -10, "stress": 5, "money": -1500}, "time_months": 3},
+      {"text": "Start it casually with no pressure", "effects": {"happiness": 8, "energy": -5}, "time_months": 2},
+      {"text": "Bookmark it for later — no realistic time right now", "effects": {"happiness": -3, "energy": 3}, "time_months": 1}
     ]
   }
 ]

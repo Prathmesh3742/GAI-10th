@@ -1,43 +1,15 @@
 # game.gd
 # =============================================================================
-# Main gameplay screen — Steps 3 + 4.
+# Main gameplay screen — Steps 3/4/7.
 #
 # Layout: 2-column (sidebar | event panel)
 #   Left  — 300 px stat sidebar: title, age, 4 primary stats + bars, info footer
 #   Right — expanding event card: category, title, description, choice buttons
 #
-# Step 4 uses HARDCODED_EVENT (replaced in Step 9 by GameManager.request_next_event)
+# Step 7+: Events come from EventManager (fallback pool, 62 events, no-repeat).
+# Step 8+: AIService provides AI-generated events when online.
 # =============================================================================
 extends Control
-
-# ── Hard-coded event (Step 4) — replaced in Step 9 ───────────────────────────
-const HARDCODED_EVENT: Dictionary = {
-	"event_type" : "career",
-	"title"      : "A New Opportunity",
-	"description": (
-		"Your manager calls you into the office with exciting news. A new "
-		+ "position has opened up — higher salary, more responsibility, and "
-		+ "significantly more stress. The role requires relocating to another "
-		+ "city. How do you respond?"
-	),
-	"choices": [
-		{
-			"text"       : "Accept the promotion eagerly",
-			"effects"    : {"money": 8000, "stress": 15, "happiness": 10, "reputation": 5},
-			"time_months": 6
-		},
-		{
-			"text"       : "Ask for a week to think it over",
-			"effects"    : {"stress": -3, "reputation": -2},
-			"time_months": 1
-		},
-		{
-			"text"       : "Decline — you are happy where you are",
-			"effects"    : {"stress": -10, "happiness": 5},
-			"time_months": 6
-		}
-	]
-}
 
 # ── Sidebar stats config ──────────────────────────────────────────────────────
 # has_bar: whether to draw a ProgressBar (money has no cap, so no bar)
@@ -79,11 +51,7 @@ func _ready() -> void:
 	_build_info_labels()
 	_connect_signals()
 	_refresh_stats()
-	_loading_overlay.hide()
-	# Step 9: replace next line with GameManager.request_next_event()
-	# Routing through on_event_received() so GameManager._current_event is
-	# populated — apply_choice() reads it and would fail otherwise.
-	GameManager.on_event_received(HARDCODED_EVENT)
+	GameManager.request_next_event()
 
 
 # =============================================================================

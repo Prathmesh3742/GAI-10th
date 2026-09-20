@@ -68,6 +68,7 @@ func apply_choice(choice_index: int) -> void:
 # =============================================================================
 func start_new_game(char_data: Dictionary) -> void:
 	GameState.initialize(char_data)
+	EventManager.reset_life()   # Clears used-event tracker for a fresh playthrough
 	UIManager.change_scene("res://scenes/game/game.tscn")
 
 
