@@ -28,22 +28,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 24
-
-[node name="Title" type="Label" parent="CenterContainer/VBox"]
-layout_mode = 2
-text = "EVENT RESULT SCREEN"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="CenterContainer/VBox"]
-layout_mode = 2
-text = "Full implementation coming in Step 5"
-horizontal_alignment = 1
-
-[node name="BtnBack" type="Button" parent="CenterContainer/VBox"]
+[node name="ContentCard" type="PanelContainer" parent="CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-custom_minimum_size = Vector2(220, 48)
-text = "<  Back to Menu"
+custom_minimum_size = Vector2(580, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ContentCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MainContent" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "YOUR CHOICE"
+
+[node name="AgeLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AGE 18"
+horizontal_alignment = 2
+
+[node name="Sep1" type="HSeparator" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="ChoiceText" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "..."
+autowrap_mode = 2
+
+[node name="TimeLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
+
+[node name="Sep2" type="HSeparator" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="EffectsTitle" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+text = "Effects on your life:"
+
+[node name="EffectsContainer" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Sep3" type="HSeparator" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="SnapshotTitle" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+text = "Your life now:"
+
+[node name="SnapshotLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 8)
+
+[node name="BtnContinue" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "Continue Your Life  ->"
