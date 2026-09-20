@@ -1,0 +1,134 @@
+[
+  {
+    "event_type": "career",
+    "title": "A New Opportunity",
+    "description": "Your manager calls you into the office with exciting news — a new position has opened up that could change your career trajectory. The role comes with more responsibility, a higher salary, but also higher stress.",
+    "choices": [
+      {
+        "text": "Accept the promotion eagerly",
+        "effects": { "money": 8000, "stress": 15, "happiness": 10, "reputation": 5 },
+        "time_months": 6
+      },
+      {
+        "text": "Ask for a week to consider it",
+        "effects": { "stress": -3, "reputation": -2 },
+        "time_months": 1
+      },
+      {
+        "text": "Decline and focus on your current role",
+        "effects": { "stress": -8, "happiness": 5, "reputation": -3 },
+        "time_months": 6
+      }
+    ]
+  },
+  {
+    "event_type": "relationships",
+    "title": "An Old Friend Returns",
+    "description": "Someone you haven't spoken to in years reaches out. They want to reconnect and catch up. A part of you is excited, another part is cautious — you remember why you drifted apart.",
+    "choices": [
+      {
+        "text": "Meet them for coffee",
+        "effects": { "happiness": 12, "energy": -5, "stress": -5 },
+        "time_months": 1
+      },
+      {
+        "text": "Reply warmly but keep your distance",
+        "effects": { "happiness": 4, "stress": -2 },
+        "time_months": 1
+      },
+      {
+        "text": "Ignore the message",
+        "effects": { "stress": -8, "happiness": -5, "reputation": -3 },
+        "time_months": 1
+      }
+    ]
+  },
+  {
+    "event_type": "health",
+    "title": "An Unexpected Health Scare",
+    "description": "You wake up feeling unwell and decide to visit a doctor. After some tests, the results suggest you need to make lifestyle changes. The doctor recommends medication and reduced stress.",
+    "choices": [
+      {
+        "text": "Follow the doctor's advice strictly",
+        "effects": { "health": 20, "money": -3000, "stress": -10, "happiness": -5 },
+        "time_months": 3
+      },
+      {
+        "text": "Take some rest and try home remedies",
+        "effects": { "health": 8, "stress": -3 },
+        "time_months": 1
+      },
+      {
+        "text": "Ignore the symptoms and push through",
+        "effects": { "health": -15, "stress": 10, "happiness": -8 },
+        "time_months": 2
+      }
+    ]
+  },
+  {
+    "event_type": "finance",
+    "title": "A Financial Decision",
+    "description": "You have some savings accumulated and a financial advisor suggests two options: invest in the stock market for higher returns, or put the money in a safe fixed deposit.",
+    "choices": [
+      {
+        "text": "Invest aggressively in stocks",
+        "effects": { "money": 12000, "stress": 15, "happiness": 5 },
+        "time_months": 12
+      },
+      {
+        "text": "Go with the safe fixed deposit",
+        "effects": { "money": 3000, "stress": -5, "happiness": 2 },
+        "time_months": 12
+      },
+      {
+        "text": "Spend it on experiences instead",
+        "effects": { "money": -8000, "happiness": 18, "stress": -12 },
+        "time_months": 3
+      }
+    ]
+  },
+  {
+    "event_type": "family",
+    "title": "A Family Gathering",
+    "description": "Your extended family is hosting a large gathering this weekend. Relatives you haven't seen in years will be there. It's an opportunity to reconnect — or to deal with the usual family drama.",
+    "choices": [
+      {
+        "text": "Attend and engage genuinely",
+        "effects": { "happiness": 10, "energy": -10, "stress": 5, "reputation": 3 },
+        "time_months": 1
+      },
+      {
+        "text": "Attend but keep to yourself",
+        "effects": { "happiness": 3, "energy": -5 },
+        "time_months": 1
+      },
+      {
+        "text": "Skip it — you're too busy",
+        "effects": { "happiness": -5, "stress": -8, "reputation": -5 },
+        "time_months": 1
+      }
+    ]
+  },
+  {
+    "event_type": "random",
+    "title": "A Quiet Weekend",
+    "description": "You have an unexpectedly free weekend with no obligations. The city is alive with possibilities and you feel the rare gift of unstructured time stretching ahead of you.",
+    "choices": [
+      {
+        "text": "Rest at home and completely recharge",
+        "effects": { "energy": 18, "stress": -12, "happiness": 6 },
+        "time_months": 1
+      },
+      {
+        "text": "Explore the city and meet new people",
+        "effects": { "happiness": 12, "energy": -5, "stress": 3 },
+        "time_months": 1
+      },
+      {
+        "text": "Pick up a new hobby",
+        "effects": { "happiness": 15, "energy": -8, "reputation": 3 },
+        "time_months": 1
+      }
+    ]
+  }
+]

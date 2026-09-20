@@ -1,0 +1,15 @@
+{
+  "ladder": ["Student", "Intern", "Junior", "Mid-Level", "Senior", "Manager", "Director"],
+  "careers": [
+    "Student",
+    "Software Developer",
+    "Doctor",
+    "Teacher",
+    "Business Owner",
+    "Designer",
+    "Engineer",
+    "Government Employee",
+    "Artist",
+    "Freelancer"
+  ]
+}

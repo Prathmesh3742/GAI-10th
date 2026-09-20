@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://als1lifsm05"]
+
+[ext_resource type="Script" path="res://scenes/life_summary/life_summary.gd" id="1_lifsm"]
+
+[node name="LifeSummary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lifsm")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0549, 0.0627, 0.0863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+text = "LIFE SUMMARY"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+text = "Full implementation coming in Step 9"
+horizontal_alignment = 1
+
+[node name="BtnBack" type="Button" parent="CenterContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(220, 48)
+text = "<  Back to Menu"

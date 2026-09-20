@@ -1,0 +1,188 @@
+[gd_scene load_steps=2 format=3 uid="uid://als1charcr02"]
+
+[ext_resource type="Script" path="res://scenes/character_creation/character_creation.gd" id="1_charcr"]
+
+[node name="CharacterCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_charcr")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0549, 0.0627, 0.0863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentCard" type="PanelContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(620, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ContentCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MainContent" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnBack" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(90, 38)
+text = "<  Back"
+
+[node name="HeaderTitle" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CREATE YOUR CHARACTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="FormSection" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameRow" type="HBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NameLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/NameRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(110, 0)
+size_flags_vertical = 4
+text = "Your Name"
+
+[node name="NameInput" type="LineEdit" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 42)
+placeholder_text = "Enter your full name"
+max_length = 40
+
+[node name="TwoColRow" type="HBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GenderCol" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/TwoColRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="GenderLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/TwoColRow/GenderCol"]
+layout_mode = 2
+text = "Gender"
+
+[node name="GenderOption" type="OptionButton" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/TwoColRow/GenderCol"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 42)
+
+[node name="LocationCol" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/TwoColRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="LocationLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/TwoColRow/LocationCol"]
+layout_mode = 2
+text = "Starting Location"
+
+[node name="LocationOption" type="OptionButton" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/TwoColRow/LocationCol"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 42)
+
+[node name="EducRow" type="HBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EducCol" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/EducRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="EducLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/EducRow/EducCol"]
+layout_mode = 2
+text = "Starting Education"
+
+[node name="EducOption" type="OptionButton" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/EducRow/EducCol"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 42)
+
+[node name="EducSpacer" type="Control" parent="CenterContainer/ContentCard/MarginContainer/MainContent/FormSection/EducRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sep2" type="HSeparator" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="TraitsSection" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TraitsHeader" type="HBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TraitsSection"]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TraitsSection/TraitsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Personality Traits"
+
+[node name="TraitCount" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TraitsSection/TraitsHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 / 2"
+horizontal_alignment = 2
+
+[node name="TraitHint" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TraitsSection"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select 2 traits that define your character."
+
+[node name="TraitsGrid" type="GridContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TraitsSection"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="Spacer" type="Control" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 4)
+
+[node name="BtnConfirm" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+text = "Begin Your Life  ->"

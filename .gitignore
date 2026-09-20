@@ -1,0 +1,31 @@
+# ── Godot 4 generated files ───────────────────────────────
+.godot/
+*.uid
+*.import
+*.translation
+*.mono/
+
+# ── Export / build artifacts ──────────────────────────────
+build/
+export/
+*.pck
+*.exe
+*.x86_64
+*.apk
+*.aab
+
+# ── Environment / API secrets (NEVER commit) ─────────────
+config/.env
+
+# ── OS artifacts ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── IDE artifacts ─────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

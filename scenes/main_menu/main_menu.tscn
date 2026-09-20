@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=3 uid="uid://als1mmenu01"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_mmenu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mmenu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0549, 0.0627, 0.0863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentCard" type="PanelContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(460, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ContentCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_top = 52
+theme_override_constants/margin_bottom = 52
+
+[node name="MainContent" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleSection" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TitleSection"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AI LIFE SIMULATOR"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/ContentCard/MarginContainer/MainContent/TitleSection"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your story, endlessly generated."
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnNewLife" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent/ButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "  New Life"
+
+[node name="BtnContinue" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent/ButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "  Continue"
+
+[node name="BtnHowToPlay" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent/ButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "  How to Play"
+
+[node name="BtnSettings" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent/ButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "  Settings"
+
+[node name="BtnExit" type="Button" parent="CenterContainer/ContentCard/MarginContainer/MainContent/ButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "  Exit"
+
+[node name="VersionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_vertical = 0
+text = "v0.1.0  —  Milestone 1  |  AI Life Simulator"
+horizontal_alignment = 1
