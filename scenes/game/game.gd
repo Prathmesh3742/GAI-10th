@@ -51,7 +51,9 @@ func _ready() -> void:
 	_build_info_labels()
 	_connect_signals()
 	_refresh_stats()
-	GameManager.request_next_event()
+	# Always show overlay while first event loads (hides in _on_event_ready)
+	_loading_overlay.show()
+	await GameManager.request_next_event()
 
 
 # =============================================================================
@@ -61,7 +63,10 @@ func _connect_signals() -> void:
 	GameState.state_changed.connect(_on_state_changed)
 	GameManager.choice_applied.connect(_on_choice_applied)
 	GameManager.event_ready.connect(_on_event_ready)
+	AIService.ai_status_changed.connect(_on_ai_status_changed)
 	_btn_menu.pressed.connect(_on_menu_pressed)
+	# Initialise the badge with current status
+	_on_ai_status_changed(AIService.is_available())
 
 
 func _on_state_changed() -> void:
@@ -81,7 +86,16 @@ func _on_choice_applied(choice: Dictionary, effects: Dictionary) -> void:
 
 func _on_event_ready(event_data: Dictionary) -> void:
 	_loading_overlay.hide()
+	_set_choices_enabled(true)
 	_load_event(event_data)
+
+
+func _on_ai_status_changed(is_online: bool) -> void:
+	_ai_status_badge.text = "🟢 AI Online" if is_online else "🔴 Offline Mode"
+	_ai_status_badge.add_theme_color_override(
+		"font_color",
+		UIManager.C_SUCCESS if is_online else UIManager.C_SUBTEXT
+	)
 
 
 # =============================================================================
@@ -135,17 +149,24 @@ func _set_choices_enabled(enabled: bool) -> void:
 # =============================================================================
 func _on_menu_pressed() -> void:
 	var dialog := ConfirmationDialog.new()
-	dialog.title       = "Game Menu"
+	dialog.title = "Game Menu"
 	dialog.dialog_text = (
-		"%s  —  AGE %d\n\nSave and return to the main menu?"
+		"%s  •  AGE %d\n\nSave and return to the main menu?"
 		% [GameState.player_name, int(GameState.age)]
 	)
-	dialog.min_size = Vector2(380, 100)
+	dialog.get_ok_button().text = "Save & Exit to Menu"
+	dialog.add_button("End My Life  →", true, &"end_life")
+	dialog.min_size = Vector2(400, 120)
 	add_child(dialog)
 	dialog.popup_centered()
 	dialog.confirmed.connect(func() -> void:
 		SaveManager.save_game()
 		UIManager.change_scene("res://scenes/main_menu/main_menu.tscn")
+	)
+	dialog.custom_action.connect(func(action: StringName) -> void:
+		if action == &"end_life":
+			dialog.hide()
+			GameManager.navigate_to_summary()
 	)
 	dialog.canceled.connect(dialog.queue_free)
 	dialog.close_requested.connect(dialog.queue_free)

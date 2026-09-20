@@ -2,10 +2,9 @@
 # =============================================================================
 # Autoload Node responsible for:
 #   1. Weighted random category selection (engine picks category, AI picks content)
-#   2. Requesting events from AIService (Step 8+) or fallback pool (Steps 1–7)
-#   3. Validating AI output against the contract schema (§5.5)
-#   4. Enforcing career-level ladder rules (deltas, not absolutes)
-#   5. No-repeat tracking for fallback events within a life
+#   2. Requesting events from AIService (Step 8+) or fallback pool on failure
+#   3. Validating AI output against the contract schema
+#   4. No-repeat tracking for fallback events within a life
 # =============================================================================
 extends Node
 
@@ -51,14 +50,15 @@ func reset_life() -> void:
 func request_event() -> void:
 	var category: String = select_category()
 
-	# TODO (Step 8): uncomment AI path
-	# if AIService.is_online():
-	#     var event = await AIService.generate_event(category, GameState.get_context())
-	#     if not event.is_empty() and _validate_event(event):
-	#         GameManager.on_event_received(event)
-	#         return
+	if AIService.is_available():
+		var context: Dictionary = _build_ai_context(category)
+		var ai_event: Dictionary = await AIService.generate_event(context)
+		if not ai_event.is_empty():
+			GameManager.on_event_received(ai_event)
+			return
+		push_warning("EventManager: AI event failed — using fallback for '%s'" % category)
 
-	# Fallback path
+	# Fallback path (offline or AI failure)
 	var event: Dictionary = _get_fallback_event(category)
 	GameManager.on_event_received(event)
 
@@ -114,12 +114,37 @@ func _validate_event(event: Dictionary) -> bool:
 
 	return true
 
+# =============================================================================
+# _build_ai_context() — packages GameState into the dict AIService expects.
+# =============================================================================
+func _build_ai_context(category: String) -> Dictionary:
+	var traits_list: Array[String] = []
+	for k: String in GameState.personality_traits.keys():
+		traits_list.append(k)
 
-# =============================================================================
-# _clamp_effects() — sanitise AI-provided numeric values in-place.
-# Bounded stats: health, happiness, stress, reputation, energy.
-# money: no clamp (engine handles floor).
-# =============================================================================
+	var recent_list: Array[String] = []
+	for c: String in GameState.recent_choices:
+		recent_list.append(c)
+
+	return {
+		"category": category,
+		"state": {
+			"name"        : GameState.player_name,
+			"age"         : GameState.age,
+			"career"      : GameState.career,
+			"career_level": GameState.career_level,
+			"location"    : GameState.location,
+			"money"       : GameState.money,
+			"health"      : GameState.health,
+			"happiness"   : GameState.happiness,
+			"stress"      : GameState.stress,
+			"reputation"  : GameState.reputation,
+		},
+		"traits"        : traits_list,
+		"recent_choices": recent_list,
+	}
+
+
 func _clamp_effects(effects: Dictionary) -> void:
 	var bounded: Array = ["health", "happiness", "stress", "reputation", "energy"]
 	for stat: String in bounded:

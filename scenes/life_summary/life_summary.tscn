@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://als1lifsm05"]
+[gd_scene load_steps=2 format=3 uid="uid://lsumm1fescn0"]
 
-[ext_resource type="Script" path="res://scenes/life_summary/life_summary.gd" id="1_lifsm"]
+[ext_resource type="Script" path="res://scenes/life_summary/life_summary.gd" id="1_lsumm"]
 
 [node name="LifeSummary" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lifsm")
+script = ExtResource("1_lsumm")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0549, 0.0627, 0.0863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,22 +28,100 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 24
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(1280, 0)
 
-[node name="Title" type="Label" parent="CenterContainer/VBox"]
-layout_mode = 2
-text = "LIFE SUMMARY"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="CenterContainer/VBox"]
-layout_mode = 2
-text = "Full implementation coming in Step 9"
-horizontal_alignment = 1
-
-[node name="BtnBack" type="Button" parent="CenterContainer/VBox"]
+[node name="ContentCard" type="PanelContainer" parent="ScrollContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-custom_minimum_size = Vector2(220, 48)
-text = "<  Back to Menu"
+custom_minimum_size = Vector2(640, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer/ContentCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="MainContent" type="VBoxContainer" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="HBoxContainer" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIFE SUMMARY"
+
+[node name="AgeRangeLabel" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AGES 18 – 18"
+horizontal_alignment = 2
+
+[node name="Sep1" type="HSeparator" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Player Name"
+
+[node name="CareerLabel" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Career"
+
+[node name="Sep2" type="HSeparator" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="StatsTitle" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+text = "Life in numbers:"
+
+[node name="StatsGrid" type="GridContainer" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 6
+
+[node name="Sep3" type="HSeparator" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+
+[node name="NarrativeTitle" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reflection on your life:"
+
+[node name="NarrativeLabel" type="Label" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reflecting on your journey..."
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 12)
+
+[node name="ButtonRow" type="HBoxContainer" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnHome" type="Button" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 52)
+text = "Home Screen"
+
+[node name="BtnPlayAgain" type="Button" parent="ScrollContainer/CenterContainer/ContentCard/MarginContainer/MainContent/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 52)
+text = "Begin a New Life  ->"

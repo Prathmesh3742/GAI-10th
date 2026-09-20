@@ -25,9 +25,10 @@ func _ready() -> void:
 
 # =============================================================================
 # Called by game.gd when the screen is ready for the next event.
+# await-able: suspends caller while EventManager (and optionally AIService) run.
 # =============================================================================
 func request_next_event() -> void:
-	EventManager.request_event()
+	await EventManager.request_event()
 
 
 # =============================================================================

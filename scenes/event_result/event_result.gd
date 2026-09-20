@@ -157,8 +157,8 @@ func _format_delta(key: String, value: float) -> String:
 			return "+" + UIManager.format_money(value)
 		else:
 			return "−" + UIManager.format_money(absf(value))
-	var sign: String = "+" if value > 0.0 else ""
-	return "%s%d" % [sign, int(value)]
+	var delta_prefix: String = "+" if value > 0.0 else ""
+	return "%s%d" % [delta_prefix, int(value)]
 
 
 func _effect_color(key: String, value: float) -> Color:
@@ -174,8 +174,9 @@ func _effect_color(key: String, value: float) -> Color:
 func _build_time_text(months: int) -> String:
 	if months <= 0:
 		return ""
-	var yrs:  int = months / 12
-	var mths: int = months % 12
+	var m:    int = int(months)
+	var yrs:  int = floori(m / 12.0)
+	var mths: int = m - (yrs * 12)
 	if yrs == 0:
 		return "%d month%s passed." % [mths, "s" if mths != 1 else ""]
 	if mths == 0:
