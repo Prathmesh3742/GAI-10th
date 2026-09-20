@@ -14,6 +14,10 @@ signal game_over_triggered(reason: String)
 # ── Internal state ────────────────────────────────────────────────────────────
 var _current_event: Dictionary = {}
 
+# ── Result handoff — set by game.gd before navigating to event_result.tscn ───
+# event_result.gd reads this in _ready(); reset after reading.
+var last_choice_result: Dictionary = {}
+
 
 func _ready() -> void:
 	GameState.game_over.connect(_on_game_over)

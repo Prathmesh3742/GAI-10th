@@ -109,7 +109,7 @@ func make_card_style(
 # =============================================================================
 # format_money() — shared currency formatter.
 # =============================================================================
-static func format_money(amount: float) -> String:
+func format_money(amount: float) -> String:
 	var i: int = int(amount)
 	if i >= 10_000_000:
 		return "₹%.1fCr" % (i / 10_000_000.0)
@@ -123,7 +123,7 @@ static func format_money(amount: float) -> String:
 # =============================================================================
 # delta_string() — returns a "+15" or "-5" string for the result screen.
 # =============================================================================
-static func delta_string(value: float, prefix: String = "") -> String:
+func delta_string(value: float, prefix: String = "") -> String:
 	if value > 0:
 		return "+%s%s" % [prefix, str(int(value))]
 	return "%s%s" % [prefix, str(int(value))]

@@ -20,7 +20,171 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0549, 0.0627, 0.0863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="OuterMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MainLayout" type="HBoxContainer" parent="OuterMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Sidebar" type="PanelContainer" parent="OuterMargin/MainLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+
+[node name="SideMargin" type="MarginContainer" parent="OuterMargin/MainLayout/Sidebar"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SidebarContent" type="VBoxContainer" parent="OuterMargin/MainLayout/Sidebar/SideMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HeaderRow" type="HBoxContainer" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GameTitle" type="Label" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AI LIFE SIM"
+
+[node name="HdrSpacer" type="Control" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AgeValue" type="Label" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AGE 18"
+horizontal_alignment = 2
+
+[node name="BtnMenu" type="Button" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(58, 30)
+text = "Menu"
+
+[node name="Sep_A" type="HSeparator" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+layout_mode = 2
+
+[node name="StatsSectionLabel" type="Label" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "STATS"
+
+[node name="StatsContainer" type="VBoxContainer" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Sep_B" type="HSeparator" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+layout_mode = 2
+
+[node name="InfoContainer" type="VBoxContainer" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SidebarSpacer" type="Control" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Sep_C" type="HSeparator" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="OuterMargin/MainLayout/Sidebar/SideMargin/SidebarContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "..."
+autowrap_mode = 2
+
+[node name="EventPanel" type="PanelContainer" parent="OuterMargin/MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EventContentMargin" type="MarginContainer" parent="OuterMargin/MainLayout/EventPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="EventContent" type="VBoxContainer" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="EventHeader" type="HBoxContainer" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+layout_mode = 2
+
+[node name="EventCategoryBadge" type="Label" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent/EventHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CAREER"
+
+[node name="EvtHdrSpacer" type="Control" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent/EventHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AIStatusBadge" type="Label" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent/EventHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "🔴 Offline Mode"
+horizontal_alignment = 2
+
+[node name="EventTitle" type="Label" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loading..."
+autowrap_mode = 2
+
+[node name="EventDesc" type="Label" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
+autowrap_mode = 2
+
+[node name="EventSpacer" type="Control" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="ChoicePrompt" type="Label" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "What will you do?"
+
+[node name="Sep_E" type="HSeparator" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+layout_mode = 2
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="OuterMargin/MainLayout/EventPanel/EventContentMargin/EventContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LoadingOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0, 0.0, 0.0, 0.88)
+visible = false
+
+[node name="LoadingCenter" type="CenterContainer" parent="LoadingOverlay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,22 +192,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+[node name="LoadingVBox" type="VBoxContainer" parent="LoadingOverlay/LoadingCenter"]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 12
 
-[node name="Title" type="Label" parent="CenterContainer/VBox"]
+[node name="LoadingLabel" type="Label" parent="LoadingOverlay/LoadingCenter/LoadingVBox"]
 layout_mode = 2
-text = "MAIN GAME SCREEN"
+text = "Generating your next life event..."
 horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="CenterContainer/VBox"]
-layout_mode = 2
-text = "Full implementation coming in Steps 3 and 4"
-horizontal_alignment = 1
-
-[node name="BtnBack" type="Button" parent="CenterContainer/VBox"]
-unique_name_in_owner = true
-layout_mode = 2
-custom_minimum_size = Vector2(220, 48)
-text = "<  Back to Menu"

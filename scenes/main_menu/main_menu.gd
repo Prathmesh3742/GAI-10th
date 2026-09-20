@@ -168,7 +168,8 @@ func _show_alert(title: String, message: String) -> void:
 	dialog.min_size    = Vector2(520, 100)
 	add_child(dialog)
 	dialog.popup_centered()
-	dialog.popup_hide.connect(dialog.queue_free)
+	dialog.confirmed.connect(dialog.queue_free)
+	dialog.close_requested.connect(dialog.queue_free)
 
 
 func _show_confirm_new_game() -> void:
@@ -186,4 +187,5 @@ func _show_confirm_new_game() -> void:
 		SaveManager.delete_save()
 		UIManager.change_scene("res://scenes/character_creation/character_creation.tscn")
 	)
-	dialog.popup_hide.connect(dialog.queue_free)
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.close_requested.connect(dialog.queue_free)
