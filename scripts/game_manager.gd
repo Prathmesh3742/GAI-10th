@@ -54,14 +54,51 @@ func apply_choice(choice_index: int) -> void:
 
 	var choice: Dictionary  = choices[choice_index]
 	var effects: Dictionary = choice.get("effects", {})
-	var months: int         = choice.get("time_months", 6)
+	var months: int         = int(choice.get("time_months", 6))
 
 	GameState.apply_effects(effects)
 	GameState.advance_time(months)
 	GameState.add_recent_choice(choice.get("text", ""))
 	GameState.add_major_event(_current_event.get("title", ""))
 
+	# Career progression — enforces single-rung ladder moves.
+	# AI events may include:
+	#   "career_level_delta": 1   (promotion)   or -1 (demotion)
+	#   "career_name": "Engineer" (career change, used with delta)
+	_apply_career_change(effects)
+
 	choice_applied.emit(choice, effects)
+
+
+# Career ladder — mirrors careers.json progression order.
+const CAREER_LADDER: Array[String] = [
+	"Student", "Intern", "Junior", "Mid-Level",
+	"Senior", "Manager", "Director", "Executive"
+]
+
+func _apply_career_change(effects: Dictionary) -> void:
+	if not effects.has("career_level_delta"):
+		return
+	var delta: int = clampi(int(effects["career_level_delta"]), -1, 1)
+	if delta == 0:
+		return
+
+	var current_idx: int = CAREER_LADDER.find(GameState.career_level)
+	if current_idx == -1:
+		current_idx = 0
+	var new_idx: int = clampi(current_idx + delta, 0, CAREER_LADDER.size() - 1)
+	var new_level: String = CAREER_LADDER[new_idx]
+
+	# Use AI-provided career name if given, otherwise keep existing
+	var new_career: String = effects.get("career_name", GameState.career)
+	if not (new_career is String) or new_career.strip_edges().is_empty():
+		new_career = GameState.career
+
+	if new_level != GameState.career_level or new_career != GameState.career:
+		GameState.set_career(new_career, new_level)
+		GameState.add_major_event(
+			"%s → %s (%s)" % [GameState.player_name, new_career, new_level]
+		)
 
 
 # =============================================================================

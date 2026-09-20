@@ -73,13 +73,32 @@ func _on_state_changed() -> void:
 	_refresh_stats()
 
 
+## Flash stat labels briefly in green/red when effects are applied.
+## Called BEFORE transitioning to event_result so the player sees the reaction.
+func _flash_stat_labels(effects: Dictionary) -> void:
+	for key: String in effects.keys():
+		if key not in _stat_value_labels:
+			continue
+		var lbl: Label  = _stat_value_labels[key]
+		var val: float  = float(effects[key])
+		# Stress is inverse: going up is bad
+		var good: bool  = (val > 0.0) if key != "stress" else (val < 0.0)
+		var flash_col   = UIManager.C_SUCCESS if good else UIManager.C_DANGER
+		var tw := lbl.create_tween().set_ease(Tween.EASE_OUT)
+		tw.tween_property(lbl, "modulate", Color(flash_col, 1.0), 0.12)
+		tw.tween_property(lbl, "modulate", Color.WHITE,           0.30)
+
+
 func _on_choice_applied(choice: Dictionary, effects: Dictionary) -> void:
+	# Flash stat labels then wait one frame so the player sees the colour
+	_flash_stat_labels(effects)
 	# Store result so event_result.gd can read it, then transition
 	GameManager.last_choice_result = {
 		"choice_text" : choice.get("text", ""),
 		"effects"     : effects,
 		"time_months" : choice.get("time_months", 6)
 	}
+	await get_tree().create_timer(0.18).timeout   # let flash show for one beat
 	UIManager.change_scene("res://scenes/event_result/event_result.tscn")
 
 
